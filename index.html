@@ -5,27 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="style.css">
   <title>Happy</title>
 </head>
-<body>
+<body id="app">
   <div class="pure-g" style="justify-content: center; align-items: center;">
     <div class="pure-u-1 pure-u-m-1">
-      <div class="flip">
+      <div class="flip animate__animated animate__tada">
         <div class="front" id="card-front">
           <div class="top">
             <img src="kaligrafi.png" width="160" alt="">
           </div>
-          <span class="info-text">Silahkan di klik</span>
         </div>
-        <div class="back" id="card-back">
-          <h2>Taqabbalallahu <br> Minna Wa Minkum</h2>
-          <p id="text-ucapan"></p>
+        <div class="back align-center" id="card-back">
+          <div class="top-back">
+            <h3>Taqabbalallahu <br> Minna Wa Minkum</h3>
+            <p id="text-ucapan"></p>
+          </div>
+          <button onclick="download()" class="pure-button pure-button-primary" id="btn-download">Download</button>
         </div>
       </div>
     </div>
+    <div class="pure-u-1 pure-u-m-1">
+      <span class="text-bottom">Made with <span style="color: crimson;">&hearts;</span> by Khoerul Umam</span>
+    </div>
   </div>
 
+  <script src="toimg.js"></script>
   <script src="function.js"></script>
+  <script>
+    function download() {
+      const btn = document.getElementById("btn-download");
+      btn.style.display = "none";
+      domtoimage.toJpeg(document.getElementById('app'), { quality: 1 })
+          .then(function (dataUrl) {
+            var link = document.createElement('a');
+            link.download = 'Selamat Hari Raya Idul Fitri 1443H.jpeg';
+            link.href = dataUrl;
+            link.click();
+          });
+    }
+  </script>
 </body>
 </html>
