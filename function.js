@@ -7,5 +7,5 @@ const text = document.getElementById("text-ucapan");
 const back = document.getElementById("card-back");
 const front = document.getElementById("card-front");
 text.innerHTML = selected;
-back.style.backgroundImage = `url('/back/${background}.jpeg')`;
-front.style.backgroundImage = `url('/front/${foreground}.jpeg')`;
+back.style.backgroundImage = `url('./back/${background}.jpeg')`;
+front.style.backgroundImage = `url('./front/${foreground}.jpeg')`;
