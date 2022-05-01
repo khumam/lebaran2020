@@ -1,0 +1,11 @@
+const ucapan = ["Jika aku ada salah, tolong maafkan"];
+const background = Math.floor(Math.random() * 10);
+const foreground = Math.floor(Math.random() * 10);
+const index = Math.floor(Math.random() * ucapan.length);
+const selected = ucapan[0];
+const text = document.getElementById("text-ucapan");
+const back = document.getElementById("card-back");
+const front = document.getElementById("card-front");
+text.innerHTML = selected;
+back.style.backgroundImage = `url('/back/${background}.jpeg')`;
+front.style.backgroundImage = `url('/front/${foreground}.jpeg')`;
